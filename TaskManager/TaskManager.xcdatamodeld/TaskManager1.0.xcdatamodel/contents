@@ -9,12 +9,13 @@
         <attribute name="dateComplete" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateStart" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="taskCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taskComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="taskText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="taskTitle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EntityCat" inverseName="catTask" inverseEntity="EntityCat" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EntityTask" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="EntityCat" positionX="-36" positionY="45" width="128" height="90"/>
+        <element name="EntityTask" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>
