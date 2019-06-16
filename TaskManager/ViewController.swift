@@ -19,12 +19,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "taskManagerToTask", sender: nil)
     }
     
-    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskComplete")
+    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskCategory")
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
@@ -58,13 +58,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.dateFinish.text = dateString(date: task.dateComplete! as Date)
         
         if task.taskComplete {
-            cell.checkBoxOutlet.setImage(UIImage(named: "Check"), for: .normal)
-            cell.backgroundColor = UIColor.gray
-            cell.prioritySign.backgroundColor = UIColor.gray
+            cell.checkBoxOutlet.setImage(UIImage(named: "Checkmark"), for: .normal)
         } else {
-            cell.checkBoxOutlet.setImage(UIImage(named: "Uncheck"), for: .normal)
-            cell.backgroundColor = UIColor.white
-            cell.prioritySign.backgroundColor = task.categories?.colour as? UIColor
+            cell.checkBoxOutlet.setImage(UIImage(named: "Checkmarkempty"), for: .normal)
         }
         
         cell.delegate = self
@@ -73,15 +69,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    
+    
     func changeButton(checked: EntityTask  ) {
+        
+//        guard let indexPath = self.tableView.indexPath(for: checked) else {
+//        return  }
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath as IndexPath) as! taskCell
+//
+//
         if checked.taskComplete == true {
             checked.taskComplete = false
         } else {
             checked.taskComplete = true
         }
+        
+//        CoreDataManager.instance.managedObjectContext.refreshAllObjects()
         CoreDataManager.instance.saveContext()
         CoreDataManager.instance.managedObjectContext.refreshAllObjects()
-        tableView.reloadData()
+         tableView.reloadInputViews()
     }
     
     

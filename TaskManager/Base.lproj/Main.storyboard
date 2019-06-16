@@ -77,13 +77,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nZ-im-W4g" userLabel="checkBox">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nZ-im-W4g" userLabel="checkBox">
                                                     <rect key="frame" x="335" y="36" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="vaW-Og-Log"/>
                                                         <constraint firstAttribute="width" constant="30" id="xqw-nP-9zZ"/>
                                                     </constraints>
-                                                    <state key="normal" backgroundImage="Uncheck"/>
+                                                    <state key="normal" image="Checkmarkempty"/>
+                                                    <state key="selected" image="Checkmark"/>
                                                     <connections>
                                                         <action selector="checkBoxAction:" destination="PKe-uD-z3q" eventType="touchUpInside" id="AaL-Lw-8VU"/>
                                                     </connections>
@@ -260,7 +261,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgP-3J-3Fd">
-                                <rect key="frame" x="261" y="99" width="34" height="30"/>
+                                <rect key="frame" x="261" y="99" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -331,21 +332,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrT-AW-hai">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrT-AW-hai">
                                                     <rect key="frame" x="20" y="0.0" width="296" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUL-ln-thG">
-                                                    <rect key="frame" x="324" y="0.0" width="64" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUL-ln-thG">
+                                                    <rect key="frame" x="349" y="11" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="2Oy-Lb-hlR"/>
+                                                        <constraint firstAttribute="height" constant="30" id="fBA-IG-LBp"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AUL-ln-thG" firstAttribute="top" secondItem="dyd-wK-zP6" secondAttribute="topMargin" id="iqL-Kg-yFs"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AUL-ln-thG" secondAttribute="trailing" constant="15" id="xZ9-Fs-1GC"/>
+                                                <constraint firstItem="AUL-ln-thG" firstAttribute="leading" secondItem="nrT-AW-hai" secondAttribute="trailing" constant="8" symbolic="YES" id="yDG-hw-9h6"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="colorCategory" destination="AUL-ln-thG" id="5BF-lc-IiT"/>
@@ -467,6 +475,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Uncheck" width="128" height="128"/>
+        <image name="Checkmark" width="30" height="30"/>
+        <image name="Checkmarkempty" width="30" height="30"/>
     </resources>
 </document>

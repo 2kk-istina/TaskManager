@@ -27,8 +27,9 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         fetchedResultsController.delegate = self
+        
         do {
             try fetchedResultsController.performFetch()
         } catch {
@@ -50,10 +51,9 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellCategory", for: indexPath as IndexPath) as! CategoryTableViewCell
         let category = self.fetchedResultsController.object(at: indexPath as IndexPath) as! EntityCat
         cell.textCategory.text = category.name
-        cell.colorCategory.layer.masksToBounds = true
-        cell.colorCategory.layer.cornerRadius = 8.0
         cell.colorCategory.backgroundColor = category.colour as? UIColor
-
+        cell.colorCategory.layer.masksToBounds = true
+        cell.colorCategory.layer.cornerRadius = cell.colorCategory.frame.size.width/2;
         return cell
         
     }

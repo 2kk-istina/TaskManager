@@ -6,65 +6,45 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
-			buildPhases = (
-			);
-			dependencies = (
-			);
-			name = SwiftLint;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
-		1626BFB6F0140ED1B0DAAC68C6A9E766 /* Pods-TaskManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6975492393C069C608AF3416CBC2BEAE /* Pods-TaskManager-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2CEDBCED59619FA657FEEA88EBCCCA5E /* Pods-TaskManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC939A1784459E26BD9D0D99E20E413D /* Pods-TaskManager-dummy.m */; };
-		8E3EF7E10DD2D798BC15190437C79B21 /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED9A07962B06EBB9BA8E1F3F14AC274 /* iOSDropDown.swift */; };
-		DA759B0E8B83FE3FF7DE01FB5725A698 /* iOSDropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB243D3577A5E2345916E97CEE9DE61 /* iOSDropDown-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		EAC8FC90A094E4B9970FF35A80EB4891 /* iOSDropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B890116D9635DF0DFEF013156FB55684 /* iOSDropDown-dummy.m */; };
+		841F4D74B86E44814D9C2593B23E4CBC /* Pods-TaskManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC939A1784459E26BD9D0D99E20E413D /* Pods-TaskManager-dummy.m */; };
+		8E3EF7E10DD2D798BC15190437C79B21 /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA24CCBDEB17D542BBC948FC6C087E3 /* iOSDropDown.swift */; };
+		DA759B0E8B83FE3FF7DE01FB5725A698 /* iOSDropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 00917BB194902AA2CF1298857C2B1AC2 /* iOSDropDown-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E3E3E2CB6DE1D2A070B5CDCC2EE5694C /* Pods-TaskManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6975492393C069C608AF3416CBC2BEAE /* Pods-TaskManager-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EAC8FC90A094E4B9970FF35A80EB4891 /* iOSDropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E14891853712845919308026E962E /* iOSDropDown-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2B3EA05780C3C8965286285CE7EFEA3F /* PBXContainerItemProxy */ = {
+		DE26A40E1D889976F6C34425F57A1939 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3C76CE6CD60B1CE55A174F03CC59AE17;
 			remoteInfo = iOSDropDown;
 		};
-		A284A658137A03211EAB11EFCCA467AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
-			remoteInfo = SwiftLint;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00917BB194902AA2CF1298857C2B1AC2 /* iOSDropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDropDown-umbrella.h"; sourceTree = "<group>"; };
 		085B792371D79531087E5B3380CC7077 /* Pods-TaskManager-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TaskManager-acknowledgements.plist"; sourceTree = "<group>"; };
-		0FB243D3577A5E2345916E97CEE9DE61 /* iOSDropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDropDown-umbrella.h"; sourceTree = "<group>"; };
-		1AC91B7DC3DC7655ACCFB13244A92A4D /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
-		1ED9A07962B06EBB9BA8E1F3F14AC274 /* iOSDropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = iOSDropDown.swift; path = iOSDropDown/Classes/iOSDropDown.swift; sourceTree = "<group>"; };
-		25336B12EEC469D6856211ADACFADCF7 /* iOSDropDown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDropDown.xcconfig; sourceTree = "<group>"; };
-		631997C3AF5DB0DA89240523F9F31EE4 /* iOSDropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iOSDropDown.modulemap; sourceTree = "<group>"; };
 		6975492393C069C608AF3416CBC2BEAE /* Pods-TaskManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TaskManager-umbrella.h"; sourceTree = "<group>"; };
 		6980927080EFDA27147A0DDF68DB7741 /* Pods-TaskManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TaskManager.release.xcconfig"; sourceTree = "<group>"; };
-		8D2BB032EB1EE989B2DD46DC5DD6CEE9 /* libPods-TaskManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TaskManager.a"; path = "libPods-TaskManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6F5E14891853712845919308026E962E /* iOSDropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSDropDown-dummy.m"; sourceTree = "<group>"; };
+		8D2BB032EB1EE989B2DD46DC5DD6CEE9 /* libPods-TaskManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TaskManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AC939A1784459E26BD9D0D99E20E413D /* Pods-TaskManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TaskManager-dummy.m"; sourceTree = "<group>"; };
-		B890116D9635DF0DFEF013156FB55684 /* iOSDropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSDropDown-dummy.m"; sourceTree = "<group>"; };
-		E677EB32A8357607251D6469117781CA /* iOSDropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDropDown-prefix.pch"; sourceTree = "<group>"; };
+		B1ABF0411299A8A190EF2928F18263BB /* iOSDropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDropDown-prefix.pch"; sourceTree = "<group>"; };
+		C4A1A7FF7299FB0C2BD36348622C241E /* iOSDropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iOSDropDown.modulemap; sourceTree = "<group>"; };
+		DFA24CCBDEB17D542BBC948FC6C087E3 /* iOSDropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = iOSDropDown.swift; path = iOSDropDown/Classes/iOSDropDown.swift; sourceTree = "<group>"; };
 		ED82C939F117E4CAE41ED5FC68502B84 /* Pods-TaskManager-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TaskManager-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F1E84F2FF5A6D892D32AB77D2F168D50 /* Pods-TaskManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TaskManager.debug.xcconfig"; sourceTree = "<group>"; };
+		F39049DA5D5A0C75D6CD9107E4313C1D /* iOSDropDown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDropDown.xcconfig; sourceTree = "<group>"; };
 		FA00471B98C511A169402CF4A34C062C /* Pods-TaskManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TaskManager.modulemap"; sourceTree = "<group>"; };
-		FCEEA8BBD9DA8D0CCE0A3092B20E3FA7 /* libiOSDropDown.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libiOSDropDown.a; path = libiOSDropDown.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCEEA8BBD9DA8D0CCE0A3092B20E3FA7 /* libiOSDropDown.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSDropDown.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		219D114B96D8DDF97D238579856EC964 /* Frameworks */ = {
+		52284F0B464CCA7E3DAD11D5049CECDD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,35 +61,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07B18F7E5206CB061F1FDE0902D15C91 /* iOSDropDown */ = {
-			isa = PBXGroup;
-			children = (
-				1ED9A07962B06EBB9BA8E1F3F14AC274 /* iOSDropDown.swift */,
-				23A4D777DD806618C4309170FCE8C43E /* Support Files */,
-			);
-			name = iOSDropDown;
-			path = iOSDropDown;
-			sourceTree = "<group>";
-		};
 		199DDCAC2DC5A904E8BB227B939BB183 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				319C5A9F82618C49FF2E115E64549281 /* Pods-TaskManager */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		23A4D777DD806618C4309170FCE8C43E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				631997C3AF5DB0DA89240523F9F31EE4 /* iOSDropDown.modulemap */,
-				25336B12EEC469D6856211ADACFADCF7 /* iOSDropDown.xcconfig */,
-				B890116D9635DF0DFEF013156FB55684 /* iOSDropDown-dummy.m */,
-				E677EB32A8357607251D6469117781CA /* iOSDropDown-prefix.pch */,
-				0FB243D3577A5E2345916E97CEE9DE61 /* iOSDropDown-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/iOSDropDown";
 			sourceTree = "<group>";
 		};
 		319C5A9F82618C49FF2E115E64549281 /* Pods-TaskManager */ = {
@@ -127,13 +84,34 @@
 			path = "Target Support Files/Pods-TaskManager";
 			sourceTree = "<group>";
 		};
-		4647E55B0F1B47817B113AA7386D651C /* Support Files */ = {
+		4915033D7E0006B3426567EF7CB02592 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1AC91B7DC3DC7655ACCFB13244A92A4D /* SwiftLint.xcconfig */,
+				C4A1A7FF7299FB0C2BD36348622C241E /* iOSDropDown.modulemap */,
+				F39049DA5D5A0C75D6CD9107E4313C1D /* iOSDropDown.xcconfig */,
+				6F5E14891853712845919308026E962E /* iOSDropDown-dummy.m */,
+				B1ABF0411299A8A190EF2928F18263BB /* iOSDropDown-prefix.pch */,
+				00917BB194902AA2CF1298857C2B1AC2 /* iOSDropDown-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SwiftLint";
+			path = "../Target Support Files/iOSDropDown";
+			sourceTree = "<group>";
+		};
+		54D7EE6DC35A057EE1A04BCA614348C6 /* iOSDropDown */ = {
+			isa = PBXGroup;
+			children = (
+				DFA24CCBDEB17D542BBC948FC6C087E3 /* iOSDropDown.swift */,
+				4915033D7E0006B3426567EF7CB02592 /* Support Files */,
+			);
+			path = iOSDropDown;
+			sourceTree = "<group>";
+		};
+		60E09F58A4B6EF1F34AC349248B764C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				54D7EE6DC35A057EE1A04BCA614348C6 /* iOSDropDown */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		7B58D5912905CF76129EB724DEA5305E /* Products */ = {
@@ -145,21 +123,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE3B48E44003A925168EE309378DA36F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				07B18F7E5206CB061F1FDE0902D15C91 /* iOSDropDown */,
-				EE9A9AC493CEA350333B7CC2744A36E2 /* SwiftLint */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
-				CE3B48E44003A925168EE309378DA36F /* Pods */,
+				60E09F58A4B6EF1F34AC349248B764C0 /* Pods */,
 				7B58D5912905CF76129EB724DEA5305E /* Products */,
 				199DDCAC2DC5A904E8BB227B939BB183 /* Targets Support Files */,
 			);
@@ -170,15 +139,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EE9A9AC493CEA350333B7CC2744A36E2 /* SwiftLint */ = {
-			isa = PBXGroup;
-			children = (
-				4647E55B0F1B47817B113AA7386D651C /* Support Files */,
-			);
-			name = SwiftLint;
-			path = SwiftLint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,11 +152,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AF620908C4B87D29C730B5F05EDFADE2 /* Headers */ = {
+		EB937D283D4B04BC15CF55EFD3BCDCE0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1626BFB6F0140ED1B0DAAC68C6A9E766 /* Pods-TaskManager-umbrella.h in Headers */,
+				E3E3E2CB6DE1D2A070B5CDCC2EE5694C /* Pods-TaskManager-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,17 +183,16 @@
 		};
 		C43B97FBC59EBAF8C2E09EA36A65DBB4 /* Pods-TaskManager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E08A2E3E812F0A506DB0FE8C71669AC3 /* Build configuration list for PBXNativeTarget "Pods-TaskManager" */;
+			buildConfigurationList = BB3CC3C979AFD55AF4F9BFE641C2221A /* Build configuration list for PBXNativeTarget "Pods-TaskManager" */;
 			buildPhases = (
-				AF620908C4B87D29C730B5F05EDFADE2 /* Headers */,
-				4242BA42EB32FCF1FBEF8958E203136E /* Sources */,
-				219D114B96D8DDF97D238579856EC964 /* Frameworks */,
+				EB937D283D4B04BC15CF55EFD3BCDCE0 /* Headers */,
+				D0884B0A34D1BF8CE0A051C576A88D1C /* Sources */,
+				52284F0B464CCA7E3DAD11D5049CECDD /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				30F9EB33A3ECA311669BCFD5779DBB8E /* PBXTargetDependency */,
-				7BF47F62A20D73F858479FD09F273F93 /* PBXTargetDependency */,
+				CA5807778E3F529718C0A7FAC57AF942 /* PBXTargetDependency */,
 			);
 			name = "Pods-TaskManager";
 			productName = "Pods-TaskManager";
@@ -248,6 +207,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
+				TargetAttributes = {
+					3C76CE6CD60B1CE55A174F03CC59AE17 = {
+						LastSwiftMigration = 1020;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -263,7 +227,6 @@
 			targets = (
 				3C76CE6CD60B1CE55A174F03CC59AE17 /* iOSDropDown */,
 				C43B97FBC59EBAF8C2E09EA36A65DBB4 /* Pods-TaskManager */,
-				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
@@ -296,14 +259,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4242BA42EB32FCF1FBEF8958E203136E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2CEDBCED59619FA657FEEA88EBCCCA5E /* Pods-TaskManager-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B0CB2F195E77E1BA186DABC2951EA623 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -313,42 +268,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D0884B0A34D1BF8CE0A051C576A88D1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841F4D74B86E44814D9C2593B23E4CBC /* Pods-TaskManager-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		30F9EB33A3ECA311669BCFD5779DBB8E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftLint;
-			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
-			targetProxy = A284A658137A03211EAB11EFCCA467AC /* PBXContainerItemProxy */;
-		};
-		7BF47F62A20D73F858479FD09F273F93 /* PBXTargetDependency */ = {
+		CA5807778E3F529718C0A7FAC57AF942 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = iOSDropDown;
 			target = 3C76CE6CD60B1CE55A174F03CC59AE17 /* iOSDropDown */;
-			targetProxy = 2B3EA05780C3C8965286285CE7EFEA3F /* PBXContainerItemProxy */;
+			targetProxy = DE26A40E1D889976F6C34425F57A1939 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05A517976CC5EEB4B5DF41AD15BD4E79 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AC91B7DC3DC7655ACCFB13244A92A4D /* SwiftLint.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		204B8AEA4AE90A551A1768B355C2F9F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -475,7 +414,7 @@
 		};
 		3D70BC3BC895B5ADE25E46419F30512A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25336B12EEC469D6856211ADACFADCF7 /* iOSDropDown.xcconfig */;
+			baseConfigurationReference = F39049DA5D5A0C75D6CD9107E4313C1D /* iOSDropDown.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -493,13 +432,36 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		52F15FF61904743DDDA558AB1D6FFC92 /* Release */ = {
+		4AB1A8206EFA7B37D2AFB3D49882F57E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1E84F2FF5A6D892D32AB77D2F168D50 /* Pods-TaskManager.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TaskManager/Pods-TaskManager.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9464DF0105EE295637694315D0013582 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6980927080EFDA27147A0DDF68DB7741 /* Pods-TaskManager.release.xcconfig */;
 			buildSettings = {
@@ -523,49 +485,9 @@
 			};
 			name = Release;
 		};
-		98612F7BFF69A4D572FA2F5A4DE98393 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1E84F2FF5A6D892D32AB77D2F168D50 /* Pods-TaskManager.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TaskManager/Pods-TaskManager.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		C62B9B0E4C8E493F8AB72DE441F627B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AC91B7DC3DC7655ACCFB13244A92A4D /* SwiftLint.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		F1366E504E2DE972E62F3C1651624638 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25336B12EEC469D6856211ADACFADCF7 /* iOSDropDown.xcconfig */;
+			baseConfigurationReference = F39049DA5D5A0C75D6CD9107E4313C1D /* iOSDropDown.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -583,7 +505,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -600,11 +522,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+		BB3CC3C979AFD55AF4F9BFE641C2221A /* Build configuration list for PBXNativeTarget "Pods-TaskManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C62B9B0E4C8E493F8AB72DE441F627B3 /* Debug */,
-				05A517976CC5EEB4B5DF41AD15BD4E79 /* Release */,
+				4AB1A8206EFA7B37D2AFB3D49882F57E /* Debug */,
+				9464DF0105EE295637694315D0013582 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -614,15 +536,6 @@
 			buildConfigurations = (
 				F1366E504E2DE972E62F3C1651624638 /* Debug */,
 				3D70BC3BC895B5ADE25E46419F30512A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E08A2E3E812F0A506DB0FE8C71669AC3 /* Build configuration list for PBXNativeTarget "Pods-TaskManager" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				98612F7BFF69A4D572FA2F5A4DE98393 /* Debug */,
-				52F15FF61904743DDDA558AB1D6FFC92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
