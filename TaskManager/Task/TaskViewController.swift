@@ -10,13 +10,11 @@ import UIKit
 import CoreData
 
 class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
-    
     var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskTitle")
-    
     var myTask: EntityTask?
     var myCategory: EntityCat?
     //
-    typealias Select = (EntityTask?) -> ()
+    typealias Select = (EntityTask?) -> Void
     var didSelect: Select?
     //
     // Choice
@@ -33,7 +31,6 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
             dismiss(animated: true, completion: nil)
         }
     }
-    
     @IBAction func deleteButton(_ sender: Any) {
         if myTask == nil {
             deleteButton.isEnabled = false
@@ -57,7 +54,6 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var colorCategory: UILabel!
     @IBOutlet weak var startDate: UILabel!
     @IBOutlet weak var finishDate: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let date = Date()
@@ -120,7 +116,7 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
                 if let category = category {
                     self.myCategory = category
                     self.taskCategory.text =  self.myCategory?.name
-                    self.colorCategory.backgroundColor =  self.myCategory?.colour as? UIColor                    
+                    self.colorCategory.backgroundColor =  self.myCategory?.colour as? UIColor
                 }
             }
         }

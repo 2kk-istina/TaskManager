@@ -37,8 +37,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath as IndexPath) as! taskCell
-        let task = self.fetchedResultsController.object(at: indexPath as IndexPath) as! EntityTask
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Taskcell", for: indexPath as IndexPath) as? Taskcell else {
+            fatalError("DequeueReusableCell failed while casting")
+        }
+        guard let task = self.fetchedResultsController.object(at: indexPath as IndexPath) as? EntityTask else {
+            fatalError("DequeueReusableCell failed while casting")
+        }
         cell.taskTitle.text = task.taskTitle
         cell.catName.text = task.taskCategory
         cell.prioritySign.backgroundColor = task.categories?.colour as? UIColor
@@ -69,7 +73,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "taskManagerToTask" {
-            let controller = segue.destination as! TaskViewController
+            guard let controller = segue.destination as? TaskViewController else {
+                fatalError("Wrong destination")
+            }
             controller.myTask = sender as? EntityTask
         }
     }
@@ -113,7 +119,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //DeleteRow
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let managedObject = fetchedResultsController.object(at: indexPath) as! NSManagedObject
+            guard let managedObject = fetchedResultsController.object(at: indexPath) as? NSManagedObject else {
+                fatalError("Error")
+            }
             CoreDataManager.instance.managedObjectContext.delete(managedObject)
             CoreDataManager.instance.saveContext()
         }

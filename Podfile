@@ -2,7 +2,5 @@
 # platform :ios, '9.0'
 
 target 'TaskManager' do
-
-   pod 'iOSDropDown'
    pod 'SwiftLint'
 end

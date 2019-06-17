@@ -7,14 +7,9 @@
 //
 
 import UIKit
-import iOSDropDown
 
 class CategoryViewController: UIViewController {
-    
-    @IBOutlet weak var dropDownColor: DropDown!
-    
     var category: EntityCat?
-    
     var myColor: UIColor = .white
     //CancelCategory
     @IBAction func cancelCategory(_ sender: Any) {
@@ -29,20 +24,20 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var textFieldCategory: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        createDropdown()
-            if let category = category {
-                self.textFieldCategory.text = category.name
-                myColor = category.colour as! UIColor
-        }
+//        //createDropdown()
+//            if let category = category {
+//                self.textFieldCategory.text = category.name
+//                myColor = category.colour as! UIColor
+//        }
     }
-    func createDropdown() {
-        dropDownColor.optionArray = ["red", "blue", "green", "cyan"]
-        dropDownColor.rowBackgroundColor = .white
-        dropDownColor.didSelect { (selectedText, _, _) in
-            guard let color = Color(rawValue: selectedText) else {return}
-            self.myColor = color.create
-        }
-    }
+//    func createDropdown() {
+//        dropDownColor.optionArray = ["red", "blue", "green", "cyan"]
+//        dropDownColor.rowBackgroundColor = .white
+//        dropDownColor.didSelect { (selectedText, _, _) in
+//            guard let color = Color(rawValue: selectedText) else {return}
+//            self.myColor = color.create
+//        }
+//    }
     func saveNewCategory() -> Bool {
         if textFieldCategory.text!.isEmpty {
             let alert = UIAlertController(title: "Error!", message: "Input the Category!", preferredStyle: .alert)
@@ -62,21 +57,21 @@ class CategoryViewController: UIViewController {
     }
 }
 
-enum Color: String {
-    case red
-    case blue
-    case green
-    case cyan
-    var create: UIColor {
-        switch self {
-        case .red:
-            return UIColor.red
-        case .blue:
-            return UIColor.blue
-        case .green:
-            return UIColor.green
-        case .cyan:
-            return UIColor.cyan
-        }
-    }
-}
+//enum Color: String {
+//    case red
+//    case blue
+//    case green
+//    case cyan
+//    var create: UIColor {
+//        switch self {
+//        case .red:
+//            return UIColor.red
+//        case .blue:
+//            return UIColor.blue
+//        case .green:
+//            return UIColor.green
+//        case .cyan:
+//            return UIColor.cyan
+//        }
+//    }
+//}

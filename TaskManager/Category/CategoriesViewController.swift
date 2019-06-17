@@ -10,12 +10,10 @@ import UIKit
 import CoreData
 
 class CategoriesViewController: UIViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
-    
     @IBOutlet weak var tableView: UITableView!
-    
     var myCategory: EntityCat?
     //
-    typealias Select = (EntityCat?) -> ()
+    typealias Select = (EntityCat?) -> Void
     var didSelect: Select?
     //
     //ButtonAddNewCategory
@@ -23,7 +21,6 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
                 performSegue(withIdentifier: "catToCat", sender: nil)
     }
     var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityCat", keyForSort: "name")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchedResultsController.delegate = self
@@ -42,8 +39,12 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellCategory", for: indexPath as IndexPath) as! CategoryTableViewCell
-        let category = self.fetchedResultsController.object(at: indexPath as IndexPath) as! EntityCat
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellCategory", for: indexPath as IndexPath) as? CategoryTableViewCell else {
+            fatalError("DequeueReusableCell failed while casting")
+        }
+        guard let category = self.fetchedResultsController.object(at: indexPath as IndexPath) as? EntityCat else {
+            fatalError("Error")
+        }
         cell.textCategory.text = category.name
         cell.colorCategory.backgroundColor = category.colour as? UIColor
         cell.colorCategory.layer.masksToBounds = true
@@ -90,7 +91,9 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
     //DeleteRow
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let managedObject = fetchedResultsController.object(at: indexPath) as! NSManagedObject
+            guard let managedObject = fetchedResultsController.object(at: indexPath) as? NSManagedObject else {
+                fatalError("Error")
+            }
             CoreDataManager.instance.managedObjectContext.delete(managedObject)
             CoreDataManager.instance.saveContext()
         }

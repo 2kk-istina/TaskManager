@@ -9,13 +9,10 @@
 import Foundation
 import CoreData
 
-
 extension EntityCat {
-    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<EntityCat> {
         return NSFetchRequest<EntityCat>(entityName: "EntityCat")
     }
-    
     @NSManaged public var colour: NSObject?
     @NSManaged public var name: String?
     @NSManaged public var catTask: NSSet?
@@ -30,5 +27,5 @@ extension EntityCat {
     @objc(addCatTask:)
     @NSManaged public func addToCatTask(_ values: NSSet)
     @objc(removeCatTask:)
-    @NSManaged public func removeFromCatTask(_ values: NSSet)    
+    @NSManaged public func removeFromCatTask(_ values: NSSet)
 }
