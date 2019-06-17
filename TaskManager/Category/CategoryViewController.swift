@@ -9,8 +9,8 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
-    let colors = ["purple", "mint", "blue"]
-    var selectedColor = ""
+    let colors = ["purple", "mint", "blue", "orange", "pink"]
+    var selectedColor = "mint"
     var category: EntityCat?
     @IBAction func cancelCategory(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -59,7 +59,7 @@ extension CategoryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
     var label: UILabel
-    if let view = view as? UILabel{ label = view } else {
+    if let view = view as? UILabel { label = view } else {
     label = UILabel()}
     label.textColor = UIColor.blue
     label.textAlignment = .center
@@ -72,5 +72,3 @@ extension CategoryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         selectedColor = colors[row]
     }
 }
-
-

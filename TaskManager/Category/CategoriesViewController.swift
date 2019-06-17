@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CategoriesViewController: UIViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class CategoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var myCategory: EntityCat?
     //
@@ -23,6 +23,7 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
     var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityCat", keyForSort: "name")
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
@@ -30,6 +31,8 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
             print(error)
         }
     }
+}
+extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections {
@@ -58,6 +61,18 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
             dismiss(animated: true, completion: nil)
         }
     }
+    //DeleteRow
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let managedObject = fetchedResultsController.object(at: indexPath) as? NSManagedObject else {
+                fatalError("Error")
+            }
+            CoreDataManager.instance.managedObjectContext.delete(managedObject)
+            CoreDataManager.instance.saveContext()
+        }
+    }
+}
+extension CategoriesViewController: NSFetchedResultsControllerDelegate {
     // MARK: - FetchedResultsControllerDelegate
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
@@ -87,15 +102,5 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
-    }
-    //DeleteRow
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            guard let managedObject = fetchedResultsController.object(at: indexPath) as? NSManagedObject else {
-                fatalError("Error")
-            }
-            CoreDataManager.instance.managedObjectContext.delete(managedObject)
-            CoreDataManager.instance.saveContext()
-        }
     }
 }
