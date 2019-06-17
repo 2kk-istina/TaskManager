@@ -159,17 +159,17 @@
 			children = (
 				D282FE2422A94AF500402936 /* AppDelegate.swift */,
 				D2C3630C22AA92060067CE1D /* CoreDataManager.swift */,
+				D282FE2B22A94AF500402936 /* TaskManager.xcdatamodeld */,
 				D24FF29222B14DC800D4F515 /* EntitySettings */,
 				D20EF5D722AF8F55002E4E14 /* EntityCat */,
 				D20EF5D622AF8F2A002E4E14 /* EntityTask */,
 				D20EF5D822AF8F81002E4E14 /* Category */,
 				D20EF5D922AF8F9F002E4E14 /* Task */,
 				D282FE2622A94AF500402936 /* ViewController.swift */,
-				D282FE3022A94AF700402936 /* LaunchScreen.storyboard */,
+				D2BA98E122B6BF12000E9635 /* Main.storyboard */,
 				D282FE2E22A94AF700402936 /* Assets.xcassets */,
 				D282FE3322A94AF700402936 /* Info.plist */,
-				D2BA98E122B6BF12000E9635 /* Main.storyboard */,
-				D282FE2B22A94AF500402936 /* TaskManager.xcdatamodeld */,
+				D282FE3022A94AF700402936 /* LaunchScreen.storyboard */,
 			);
 			path = TaskManager;
 			sourceTree = "<group>";

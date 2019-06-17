@@ -9,35 +9,29 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
+    let colors = ["purple", "mint", "blue"]
+    var selectedColor = ""
     var category: EntityCat?
-    var myColor: UIColor = .white
-    //CancelCategory
     @IBAction func cancelCategory(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    //Save
     @IBAction func saveCategory(_ sender: Any) {
         if saveNewCategory() {
             dismiss(animated: true, completion: nil)
         }
     }
     @IBOutlet weak var textFieldCategory: UITextField!
+    @IBOutlet weak var colorPickerView: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        //createDropdown()
-//            if let category = category {
-//                self.textFieldCategory.text = category.name
-//                myColor = category.colour as! UIColor
-//        }
+        colorPickerView.delegate = self
+        colorPickerView.dataSource = self
+            if let category = category {
+                self.textFieldCategory.text = category.name
+                var color = UIColor(named: selectedColor)
+                color = category.colour as? UIColor
+        }
     }
-//    func createDropdown() {
-//        dropDownColor.optionArray = ["red", "blue", "green", "cyan"]
-//        dropDownColor.rowBackgroundColor = .white
-//        dropDownColor.didSelect { (selectedText, _, _) in
-//            guard let color = Color(rawValue: selectedText) else {return}
-//            self.myColor = color.create
-//        }
-//    }
     func saveNewCategory() -> Bool {
         if textFieldCategory.text!.isEmpty {
             let alert = UIAlertController(title: "Error!", message: "Input the Category!", preferredStyle: .alert)
@@ -50,28 +44,33 @@ class CategoryViewController: UIViewController {
         }
         if let category = category {
             category.name = textFieldCategory.text
-            category.colour = myColor
+            category.colour = UIColor(named: selectedColor)
             CoreDataManager.instance.saveContext()
         }
         return true
     }
 }
+extension CategoryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return colors.count
+    }
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    var label: UILabel
+    if let view = view as? UILabel{ label = view } else {
+    label = UILabel()}
+    label.textColor = UIColor.blue
+    label.textAlignment = .center
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
+    label.text = colors[row]
+    return label
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedColor = colors[row]
+    }
+}
 
-//enum Color: String {
-//    case red
-//    case blue
-//    case green
-//    case cyan
-//    var create: UIColor {
-//        switch self {
-//        case .red:
-//            return UIColor.red
-//        case .blue:
-//            return UIColor.blue
-//        case .green:
-//            return UIColor.green
-//        case .cyan:
-//            return UIColor.cyan
-//        }
-//    }
-//}
+

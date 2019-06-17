@@ -332,7 +332,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrT-AW-hai">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrT-AW-hai">
                                                     <rect key="frame" x="20" y="0.0" width="296" height="48"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="textColor"/>
@@ -350,7 +350,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="nrT-AW-hai" firstAttribute="top" secondItem="dyd-wK-zP6" secondAttribute="top" id="LZN-W6-bIV"/>
+                                                <constraint firstItem="nrT-AW-hai" firstAttribute="leading" secondItem="dyd-wK-zP6" secondAttribute="leadingMargin" id="Z2W-dg-sNl"/>
                                                 <constraint firstItem="AUL-ln-thG" firstAttribute="top" secondItem="dyd-wK-zP6" secondAttribute="topMargin" id="iqL-Kg-yFs"/>
+                                                <constraint firstItem="nrT-AW-hai" firstAttribute="centerY" secondItem="dyd-wK-zP6" secondAttribute="centerY" id="tst-fF-XgR"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="AUL-ln-thG" secondAttribute="trailing" constant="15" id="xZ9-Fs-1GC"/>
                                                 <constraint firstItem="AUL-ln-thG" firstAttribute="leading" secondItem="nrT-AW-hai" secondAttribute="trailing" constant="8" symbolic="YES" id="yDG-hw-9h6"/>
                                             </constraints>
@@ -396,9 +399,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UjC-Hi-1Oi">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UjC-Hi-1Oi">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add New Category" id="UWu-5i-anw">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gnm-Gb-8gz">
@@ -414,40 +416,54 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add new category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rcr-Sf-PHe">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add new category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rcr-Sf-PHe">
                                 <rect key="frame" x="173" y="115" width="198" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category colour:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPN-r9-ePs">
-                                <rect key="frame" x="40" y="167" width="128" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfs-ce-Uub">
+                                <rect key="frame" x="90" y="119" width="75" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfs-ce-Uub">
-                                <rect key="frame" x="90" y="120" width="75" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrF-8A-7DX">
+                                <rect key="frame" x="173" y="165" width="200" height="145"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="65e-N7-mqx"/>
+                                    <constraint firstAttribute="height" constant="145" id="ozN-SJ-4wT"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category colour:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPN-r9-ePs">
+                                <rect key="frame" x="37" y="227" width="128" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEn-pQ-tnl" customClass="DropDown" customModule="iOSDropDown">
-                                <rect key="frame" x="173" y="158" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rcr-Sf-PHe" firstAttribute="top" secondItem="Rz1-yb-yIO" secondAttribute="top" constant="115" id="1mA-bX-gkq"/>
+                            <constraint firstItem="mPN-r9-ePs" firstAttribute="leading" secondItem="RIe-NB-NwD" secondAttribute="leading" constant="37" id="5Qw-0G-4hC"/>
+                            <constraint firstItem="mPN-r9-ePs" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pfs-ce-Uub" secondAttribute="trailing" id="6uX-xg-2az"/>
+                            <constraint firstItem="rcr-Sf-PHe" firstAttribute="centerY" secondItem="pfs-ce-Uub" secondAttribute="centerY" id="7EG-Fd-aVg"/>
+                            <constraint firstItem="hrF-8A-7DX" firstAttribute="leading" secondItem="mPN-r9-ePs" secondAttribute="trailing" constant="8" symbolic="YES" id="Dcz-BX-1Pz"/>
+                            <constraint firstItem="mPN-r9-ePs" firstAttribute="top" secondItem="pfs-ce-Uub" secondAttribute="bottom" constant="86" id="GwN-sk-Xu7"/>
+                            <constraint firstAttribute="trailing" secondItem="UjC-Hi-1Oi" secondAttribute="trailing" id="WbC-sX-lZ4"/>
+                            <constraint firstItem="UjC-Hi-1Oi" firstAttribute="leading" secondItem="Rz1-yb-yIO" secondAttribute="leading" id="Xce-di-K0L"/>
+                            <constraint firstItem="mPN-r9-ePs" firstAttribute="centerY" secondItem="hrF-8A-7DX" secondAttribute="centerY" id="Z9Z-kh-lam"/>
+                            <constraint firstItem="RIe-NB-NwD" firstAttribute="bottom" secondItem="mPN-r9-ePs" secondAttribute="bottom" constant="614" id="dos-h1-dVQ"/>
+                            <constraint firstItem="rcr-Sf-PHe" firstAttribute="top" secondItem="UjC-Hi-1Oi" secondAttribute="bottom" constant="27" id="fHy-tU-K1J"/>
+                            <constraint firstItem="hrF-8A-7DX" firstAttribute="top" secondItem="rcr-Sf-PHe" secondAttribute="bottom" constant="20" id="fjl-D2-IWG"/>
+                            <constraint firstItem="pfs-ce-Uub" firstAttribute="leading" secondItem="RIe-NB-NwD" secondAttribute="leading" constant="90" id="g1y-EP-Q5g"/>
+                            <constraint firstItem="RIe-NB-NwD" firstAttribute="trailing" secondItem="rcr-Sf-PHe" secondAttribute="trailing" constant="43" id="iUS-8f-ceh"/>
+                            <constraint firstItem="rcr-Sf-PHe" firstAttribute="leading" secondItem="hrF-8A-7DX" secondAttribute="leading" id="sa2-dN-eV1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RIe-NB-NwD"/>
                     </view>
                     <connections>
-                        <outlet property="dropDownColor" destination="gEn-pQ-tnl" id="q2L-td-HP4"/>
+                        <outlet property="colorPickerView" destination="hrF-8A-7DX" id="lFM-sw-0L4"/>
                         <outlet property="textFieldCategory" destination="rcr-Sf-PHe" id="Ih0-1t-L7w"/>
                     </connections>
                 </viewController>
