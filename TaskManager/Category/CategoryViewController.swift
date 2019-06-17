@@ -16,7 +16,6 @@ class CategoryViewController: UIViewController {
     var category: EntityCat?
     
     var myColor: UIColor = .white
-    
     //CancelCategory
     @IBAction func cancelCategory(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -27,30 +26,24 @@ class CategoryViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         }
     }
-    
     @IBOutlet weak var textFieldCategory: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         createDropdown()
-        
             if let category = category {
                 self.textFieldCategory.text = category.name
                 myColor = category.colour as! UIColor
         }
     }
-    
     func createDropdown() {
-        dropDownColor.optionArray = ["Red", "Blue", "Green", "Cyan"]
+        dropDownColor.optionArray = ["red", "blue", "green", "cyan"]
         dropDownColor.rowBackgroundColor = .white
-        dropDownColor.didSelect{(selectedText , index ,id) in
+        dropDownColor.didSelect { (selectedText, _, _) in
             guard let color = Color(rawValue: selectedText) else {return}
             self.myColor = color.create
         }
     }
-    
     func saveNewCategory() -> Bool {
-        
         if textFieldCategory.text!.isEmpty {
             let alert = UIAlertController(title: "Error!", message: "Input the Category!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -60,7 +53,6 @@ class CategoryViewController: UIViewController {
         if category == nil {
             category = EntityCat()
         }
-        
         if let category = category {
             category.name = textFieldCategory.text
             category.colour = myColor
@@ -68,26 +60,23 @@ class CategoryViewController: UIViewController {
         }
         return true
     }
-
 }
 
 enum Color: String {
-    case Red
-    case Blue
-    case Green
-    case Cyan
-    
+    case red
+    case blue
+    case green
+    case cyan
     var create: UIColor {
         switch self {
-        case .Red:
+        case .red:
             return UIColor.red
-        case .Blue:
+        case .blue:
             return UIColor.blue
-        case .Green:
+        case .green:
             return UIColor.green
-        case .Cyan:
+        case .cyan:
             return UIColor.cyan
         }
     }
 }
-

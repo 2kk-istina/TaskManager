@@ -22,23 +22,18 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
     @IBAction func addNewCategory(_ sender: Any) {
                 performSegue(withIdentifier: "catToCat", sender: nil)
     }
-    
     var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityCat", keyForSort: "name")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchedResultsController.delegate = self
-        
         do {
             try fetchedResultsController.performFetch()
         } catch {
             print(error)
         }
     }
-    
     // MARK: - TableViewDataSource
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections {
             return sections[section].numberOfObjects
@@ -46,18 +41,15 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
             return 0
         }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellCategory", for: indexPath as IndexPath) as! CategoryTableViewCell
         let category = self.fetchedResultsController.object(at: indexPath as IndexPath) as! EntityCat
         cell.textCategory.text = category.name
         cell.colorCategory.backgroundColor = category.colour as? UIColor
         cell.colorCategory.layer.masksToBounds = true
-        cell.colorCategory.layer.cornerRadius = cell.colorCategory.frame.size.width/2;
+        cell.colorCategory.layer.cornerRadius = cell.colorCategory.frame.size.width/2
         return cell
-        
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = fetchedResultsController.object(at: indexPath) as? EntityCat
         if let dSelect = self.didSelect {
@@ -65,13 +57,10 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
             dismiss(animated: true, completion: nil)
         }
     }
-    
     // MARK: - FetchedResultsControllerDelegate
-    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
-    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
         case .insert:
@@ -88,16 +77,13 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
-            
             if let newIndexPath = newIndexPath {
                 tableView.insertRows(at: [newIndexPath], with: .fade)
             }
-            
         @unknown default:
             fatalError()
         }
     }
-    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
@@ -108,7 +94,5 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
             CoreDataManager.instance.managedObjectContext.delete(managedObject)
             CoreDataManager.instance.saveContext()
         }
-        
     }
-    
 }

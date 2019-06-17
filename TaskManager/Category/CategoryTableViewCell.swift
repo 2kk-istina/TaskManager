@@ -11,6 +11,5 @@ import UIKit
 class CategoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textCategory: UILabel!
-    @IBOutlet weak var colorCategory: UILabel!
-    
+    @IBOutlet weak var colorCategory: UILabel!    
 }

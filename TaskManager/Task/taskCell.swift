@@ -13,9 +13,6 @@ protocol ChangeButton {
 }
 
 class taskCell: UITableViewCell {
-    
-    
-  
     @IBOutlet weak var catName: UILabel!
     @IBOutlet weak var taskTitle: UILabel!
     @IBOutlet weak var prioritySign: UILabel!
@@ -23,22 +20,12 @@ class taskCell: UITableViewCell {
     @IBOutlet weak var dateFinish: UILabel!
     @IBOutlet weak var checkBoxOutlet: UIButton!
     
-    
     @IBAction func checkBoxAction(_ sender: Any) {
         delegate?.changeButton(checked: task ?? EntityTask())
-//        if task!.taskComplete {
-//            delegate?.changeButton(checked: false)
-//        } else {
-//            delegate?.changeButton(checked: true)
-//        }
-//        delegate?.changeButton(checked: self)
     }
-    
-  
     
     var delegate: ChangeButton?
     var task: EntityTask?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

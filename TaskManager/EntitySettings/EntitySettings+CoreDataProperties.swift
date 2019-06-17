@@ -9,13 +9,10 @@
 import Foundation
 import CoreData
 
-
 extension EntitySettings {
-    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<EntitySettings> {
         return NSFetchRequest<EntitySettings>(entityName: "EntitySettings")
-    }
-    
+    }    
     @NSManaged public var notification: Bool
     @NSManaged public var sort: String?
     

@@ -44,16 +44,12 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
             CoreDataManager.instance.saveContext()
             canselInfo((Any).self)
         }
-        
     }
-    
     @IBAction func datePicker(_ sender: Any) {
         finishDate.text = dateString(date: datePicker.date)
         myTask?.dateComplete = datePicker.date as NSDate
     }
-    
     //Outlets
-    
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var taskCategory: UITextField!
@@ -64,10 +60,8 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let date = Date()
         startDate.text = dateString(date: date)
-        
         colorCategory.layer.masksToBounds = true
         colorCategory.layer.cornerRadius = colorCategory.frame.size.width/2
 
@@ -75,17 +69,12 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
             taskTitle.text = myTask.taskTitle
             taskCategory.text = myTask.categories?.name
             colorCategory.backgroundColor = myTask.categories?.colour as? UIColor
-            
             datePicker.date = myTask.dateComplete! as Date
             finishDate.text = dateString(date: myTask.dateComplete! as Date)
-            //myTask.taskComplete = false
-
         }
     }
-    
     //SaveNewTask
     func saveNewTask() -> Bool {
-        
         if taskTitle.text!.isEmpty {
             let alert = UIAlertController(title: "Error!",
                                           message: "Input the title of the task!",
@@ -96,11 +85,9 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
             present(alert, animated: true, completion: nil)
             return false
         }
-        
         if myTask == nil {
             myTask = EntityTask()
         }
-        
         if let myTask = myTask {
             myTask.taskCategory = taskCategory.text
             myTask.taskTitle = taskTitle.text
@@ -109,30 +96,22 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
             myTask.dateStart = dateDate(date: startDate.text!) as NSDate
             myTask.dateComplete = dateDate(date: finishDate.text!) as NSDate
             myTask.taskComplete = false
-           
             CoreDataManager.instance.saveContext()
         }
         return true
     }
-    
     func dateString(date: Date) -> String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy, hh:mm"
         let dateResult = dateFormatter.string(from: date)
-        
         return dateResult
     }
-    
     func dateDate(date: String) -> Date {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy, hh:mm"
         let dateResult = dateFormatter.date(from: date)!
-        
         return dateResult
     }
-
     //AddCategory
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "categoryToCategory" {
@@ -141,8 +120,7 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
                 if let category = category {
                     self.myCategory = category
                     self.taskCategory.text =  self.myCategory?.name
-                    self.colorCategory.backgroundColor =  self.myCategory?.colour as? UIColor
-                    
+                    self.colorCategory.backgroundColor =  self.myCategory?.colour as? UIColor                    
                 }
             }
         }

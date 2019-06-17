@@ -4,4 +4,5 @@
 target 'TaskManager' do
 
    pod 'iOSDropDown'
+   pod 'SwiftLint'
 end
