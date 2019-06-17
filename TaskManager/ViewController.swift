@@ -9,13 +9,14 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, ChangeButton {
+class ViewController: UIViewController, ChangeButton {
+    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskCategory")
     var myTask: EntityTask?
     @IBOutlet weak var tableView: UITableView!
     @IBAction func addNewTask(_ sender: Any) {
         performSegue(withIdentifier: "taskManagerToTask", sender: nil)
     }
-    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskCategory")
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchedResultsController.delegate = self
@@ -28,6 +29,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         tableView.reloadData()
     }
+    func changeButton(checked: EntityTask  ) {
+        if checked.taskComplete == true {
+            checked.taskComplete = false
+        } else {
+            checked.taskComplete = true
+        }
+        CoreDataManager.instance.saveContext()
+        CoreDataManager.instance.managedObjectContext.refreshAllObjects()
+        tableView.reloadInputViews()
+    }
+    func dateString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy, hh:mm"
+        let dateResult = dateFormatter.string(from: date)
+        return dateResult
+    }
+}
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections {
@@ -57,16 +76,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.task = task
         return cell
     }
-    func changeButton(checked: EntityTask  ) {
-        if checked.taskComplete == true {
-            checked.taskComplete = false
-        } else {
-            checked.taskComplete = true
-        }
-        CoreDataManager.instance.saveContext()
-        CoreDataManager.instance.managedObjectContext.refreshAllObjects()
-        tableView.reloadInputViews()
-    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = fetchedResultsController.object(at: indexPath) as? EntityTask
         performSegue(withIdentifier: "taskManagerToTask", sender: task)
@@ -79,19 +88,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             controller.myTask = sender as? EntityTask
         }
     }
-    func dateString(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yy, hh:mm"
-        let dateResult = dateFormatter.string(from: date)
-        return dateResult
+    //DeleteRow
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let managedObject = fetchedResultsController.object(at: indexPath) as? NSManagedObject else {
+                fatalError("Error")
+            }
+            CoreDataManager.instance.managedObjectContext.delete(managedObject)
+            CoreDataManager.instance.saveContext()
+        }
     }
+}
+extension ViewController: NSFetchedResultsControllerDelegate {
     // MARK: - FetchedResultsControllerDelegate
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
-
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch (type) {
+        switch type {
         case .insert:
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
@@ -115,15 +129,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
-    }
-    //DeleteRow
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            guard let managedObject = fetchedResultsController.object(at: indexPath) as? NSManagedObject else {
-                fatalError("Error")
-            }
-            CoreDataManager.instance.managedObjectContext.delete(managedObject)
-            CoreDataManager.instance.saveContext()
-        }
     }
 }

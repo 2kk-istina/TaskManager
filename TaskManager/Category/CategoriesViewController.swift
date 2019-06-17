@@ -10,17 +10,17 @@ import UIKit
 import CoreData
 
 class CategoriesViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityCat", keyForSort: "name")
     var myCategory: EntityCat?
     //
     typealias Select = (EntityCat?) -> Void
     var didSelect: Select?
     //
+    @IBOutlet weak var tableView: UITableView!
     //ButtonAddNewCategory
     @IBAction func addNewCategory(_ sender: Any) {
                 performSegue(withIdentifier: "catToCat", sender: nil)
     }
-    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityCat", keyForSort: "name")
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -78,7 +78,7 @@ extension CategoriesViewController: NSFetchedResultsControllerDelegate {
         tableView.beginUpdates()
     }
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch (type) {
+        switch type {
         case .insert:
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)

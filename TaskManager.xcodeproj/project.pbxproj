@@ -33,7 +33,6 @@
 		4B9424F4CD9EB5B6ED57D34F /* Pods-TaskManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManager.debug.xcconfig"; path = "Target Support Files/Pods-TaskManager/Pods-TaskManager.debug.xcconfig"; sourceTree = "<group>"; };
 		D2174F6122AFD8280016B7FE /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		D228705322B6F27400967112 /* libPods-TaskManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-TaskManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D228705522B6F27F00967112 /* libiOSDropDown.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libiOSDropDown.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D23CBCAF22AEBCA00003C559 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		D2782B0122B2AAD800BF669A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		D282FE2122A94AF500402936 /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +73,6 @@
 		4E7F90893F36C5079382A390 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D228705522B6F27F00967112 /* libiOSDropDown.a */,
 				D228705322B6F27400967112 /* libPods-TaskManager.a */,
 				E85AE02233F4A6C74FC1563C /* libPods-TaskManager.a */,
 			);
@@ -111,9 +109,9 @@
 		D20EF5D822AF8F81002E4E14 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D23CBCAF22AEBCA00003C559 /* CategoryViewController.swift */,
 				D2174F6122AFD8280016B7FE /* CategoriesViewController.swift */,
 				D2AC0B3422AE78DD00448B83 /* CategoryTableViewCell.swift */,
-				D23CBCAF22AEBCA00003C559 /* CategoryViewController.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";

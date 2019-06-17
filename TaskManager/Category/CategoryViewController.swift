@@ -10,7 +10,7 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     let colors = ["purple", "mint", "blue", "orange", "pink"]
-    var selectedColor = "mint"
+    var selectedColor = "purple"
     var category: EntityCat?
     @IBAction func cancelCategory(_ sender: Any) {
         dismiss(animated: true, completion: nil)
