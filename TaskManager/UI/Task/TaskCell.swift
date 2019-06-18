@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ChangeButton {
+protocol ChangeButton: class {
     func changeButton(checked: EntityTask)
 }
 
@@ -22,6 +22,6 @@ class Taskcell: UITableViewCell {
     @IBAction func checkBoxAction(_ sender: Any) {
         delegate?.changeButton(checked: task ?? EntityTask())
     }
-    var delegate: ChangeButton?
+    weak var delegate: ChangeButton?
     var task: EntityTask?
 }

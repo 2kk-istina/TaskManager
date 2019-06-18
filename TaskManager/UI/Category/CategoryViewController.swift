@@ -28,8 +28,6 @@ class CategoryViewController: UIViewController {
         colorPickerView.dataSource = self
             if let category = category {
                 self.textFieldCategory.text = category.name
-                var color = UIColor(named: selectedColor)
-                color = category.colour as? UIColor
         }
     }
     func saveNewCategory() -> Bool {
