@@ -72,13 +72,16 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
     //SaveNewTask
     func saveNewTask() -> Bool {
         if taskTitle.text!.isEmpty {
-            let alert = UIAlertController(title: "Error!",
-                                          message: "Input the title of the task!",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK",
-                                          style: .cancel,
-                                          handler: nil))
-            present(alert, animated: true, completion: nil)
+            alertMessage(message: "Input the title of the task")
+            return false
+        }
+        if finishDate.text!.isEmpty {
+            alertMessage(message: "Write the date")
+            return false
+        }
+        let date = Date()
+        if datePicker.date < date {
+            alertMessage(message: "Wrong date")
             return false
         }
         if myTask == nil {
@@ -95,6 +98,15 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
             CoreDataManager.instance.saveContext()
         }
         return true
+    }
+    func alertMessage (message: String) {
+        let alert = UIAlertController(title: "Error!",
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .cancel,
+                                      handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     func dateString(date: Date) -> String {
         let dateFormatter = DateFormatter()

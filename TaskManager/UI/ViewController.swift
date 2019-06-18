@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController, ChangeButton {
-    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskCategory")
+    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskComplete")
     var myTask: EntityTask?
     @IBOutlet weak var tableView: UITableView!
     @IBAction func addNewTask(_ sender: Any) {
@@ -41,7 +41,7 @@ class ViewController: UIViewController, ChangeButton {
     }
     func dateString(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yy, hh:mm"
+        dateFormatter.dateFormat = "dd/MM/yy, hh:mm"
         let dateResult = dateFormatter.string(from: date)
         return dateResult
     }
@@ -69,8 +69,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.dateFinish.text = dateString(date: task.dateComplete! as Date)
         if task.taskComplete {
             cell.checkBoxOutlet.setImage(UIImage(named: "Checkmark"), for: .normal)
+            cell.prioritySign.backgroundColor = UIColor(named: "frog")
+            cell.backgroundColor = UIColor(named: "frog")
         } else {
             cell.checkBoxOutlet.setImage(UIImage(named: "Checkmarkempty"), for: .normal)
+            cell.prioritySign.backgroundColor = task.categories?.colour as? UIColor
+            cell.backgroundColor = UIColor.white
         }
         cell.delegate = self
         cell.task = task
