@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D2174F6222AFD8280016B7FE /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2174F6122AFD8280016B7FE /* CategoriesViewController.swift */; };
+		D225559122BA78BC004845BC /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225559022BA78BC004845BC /* R.generated.swift */; };
 		D228705422B6F27400967112 /* libPods-TaskManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D228705322B6F27400967112 /* libPods-TaskManager.a */; };
 		D23CBCB022AEBCA00003C559 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CBCAF22AEBCA00003C559 /* CategoryViewController.swift */; };
+		D2620BDF22BBCA46008E4505 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2620BDE22BBCA46008E4505 /* SettingViewController.swift */; };
+		D26F371922BBE6A400B02CAD /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F371822BBE6A400B02CAD /* NotificationsManager.swift */; };
 		D2782B0222B2AAD800BF669A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2782B0122B2AAD800BF669A /* TaskViewController.swift */; };
 		D282FE2522A94AF500402936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D282FE2422A94AF500402936 /* AppDelegate.swift */; };
 		D282FE2722A94AF500402936 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D282FE2622A94AF500402936 /* ViewController.swift */; };
@@ -32,8 +35,11 @@
 		01D9008C0C23D8AFD41BEA19 /* Pods-TaskManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManager.release.xcconfig"; path = "Target Support Files/Pods-TaskManager/Pods-TaskManager.release.xcconfig"; sourceTree = "<group>"; };
 		4B9424F4CD9EB5B6ED57D34F /* Pods-TaskManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManager.debug.xcconfig"; path = "Target Support Files/Pods-TaskManager/Pods-TaskManager.debug.xcconfig"; sourceTree = "<group>"; };
 		D2174F6122AFD8280016B7FE /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		D225559022BA78BC004845BC /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		D228705322B6F27400967112 /* libPods-TaskManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-TaskManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D23CBCAF22AEBCA00003C559 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		D2620BDE22BBCA46008E4505 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D26F371822BBE6A400B02CAD /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		D2782B0122B2AAD800BF669A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		D282FE2122A94AF500402936 /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D282FE2422A94AF500402936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				D2A2C5AD22B81AD70085F5C0 /* UI */,
-				D2A2C5AC22B81A2F0085F5C0 /* Core Data */,
 			);
 			path = TaskManager;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 		D2A2C5AA22B818190085F5C0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D225559022BA78BC004845BC /* R.generated.swift */,
 				D282FE3322A94AF700402936 /* Info.plist */,
 				D282FE3022A94AF700402936 /* LaunchScreen.storyboard */,
 				D282FE2E22A94AF700402936 /* Assets.xcassets */,
@@ -181,7 +187,8 @@
 				D2C3630C22AA92060067CE1D /* CoreDataManager.swift */,
 				D282FE2B22A94AF500402936 /* TaskManager.xcdatamodeld */,
 			);
-			path = "Core Data";
+			name = "Core Data";
+			path = "../Core Data";
 			sourceTree = "<group>";
 		};
 		D2A2C5AD22B81AD70085F5C0 /* UI */ = {
@@ -189,9 +196,12 @@
 			children = (
 				D20EF5D822AF8F81002E4E14 /* Category */,
 				D20EF5D922AF8F9F002E4E14 /* Task */,
-				D282FE2422A94AF500402936 /* AppDelegate.swift */,
 				D282FE2622A94AF500402936 /* ViewController.swift */,
+				D2620BDE22BBCA46008E4505 /* SettingViewController.swift */,
+				D26F371822BBE6A400B02CAD /* NotificationsManager.swift */,
+				D282FE2422A94AF500402936 /* AppDelegate.swift */,
 				D2BA98E122B6BF12000E9635 /* Main.storyboard */,
+				D2A2C5AC22B81A2F0085F5C0 /* Core Data */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -205,6 +215,7 @@
 			buildPhases = (
 				42501FF4FDE4206167212F37 /* [CP] Check Pods Manifest.lock */,
 				D2D1F4F722B77F70001B017C /* Run Script */,
+				D22EDA8522BA4B9000D43738 /* ShellScript */,
 				D282FE1D22A94AF500402936 /* Sources */,
 				D282FE1E22A94AF500402936 /* Frameworks */,
 				D282FE1F22A94AF500402936 /* Resources */,
@@ -288,6 +299,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D22EDA8522BA4B9000D43738 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/Resource/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Resource/R.generated.swift\"\n";
+		};
 		D2D1F4F722B77F70001B017C /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -315,6 +345,8 @@
 			files = (
 				D2F60F8322A965320014062B /* TaskCell.swift in Sources */,
 				D2782B0222B2AAD800BF669A /* TaskViewController.swift in Sources */,
+				D225559122BA78BC004845BC /* R.generated.swift in Sources */,
+				D2620BDF22BBCA46008E4505 /* SettingViewController.swift in Sources */,
 				D2F99EFB22B14F7800BBE644 /* EntityTask+CoreDataProperties.swift in Sources */,
 				D2F99F0222B14FBE00BBE644 /* EntitySettings+CoreDataClass.swift in Sources */,
 				D2F99EFA22B14F7800BBE644 /* EntityTask+CoreDataClass 17-11-59-416.swift in Sources */,
@@ -324,6 +356,7 @@
 				D2F99EFF22B14FA500BBE644 /* EntityCat+CoreDataProperties 17-11-29-785.swift in Sources */,
 				D282FE2722A94AF500402936 /* ViewController.swift in Sources */,
 				D2F99F0322B14FBE00BBE644 /* EntitySettings+CoreDataProperties.swift in Sources */,
+				D26F371922BBE6A400B02CAD /* NotificationsManager.swift in Sources */,
 				D2C3630D22AA92060067CE1D /* CoreDataManager.swift in Sources */,
 				D282FE2522A94AF500402936 /* AppDelegate.swift in Sources */,
 				D2174F6222AFD8280016B7FE /* CategoriesViewController.swift in Sources */,
@@ -468,6 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8N3QLM869;
 				INFOPLIST_FILE = "$(SRCROOT)/Resource/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -487,6 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8N3QLM869;
 				INFOPLIST_FILE = "$(SRCROOT)/Resource/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -19,7 +19,7 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     //ButtonAddNewCategory
     @IBAction func addNewCategory(_ sender: Any) {
-                performSegue(withIdentifier: "catToCat", sender: nil)
+        performSegue(withIdentifier: R.segue.categoriesViewController.catToCat, sender: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellCategory", for: indexPath as IndexPath) as? CategoryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.cellCategory, for: indexPath as IndexPath) else {
             fatalError("DequeueReusableCell failed while casting")
         }
         guard let category = self.fetchedResultsController.object(at: indexPath as IndexPath) as? EntityCat else {

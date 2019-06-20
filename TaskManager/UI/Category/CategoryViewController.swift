@@ -9,8 +9,12 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
-    let colors = ["purple", "mint", "blue", "orange", "pink"]
-    var selectedColor = "purple"
+    let colors = [R.color.purple.name,
+                  R.color.blue.name,
+                  R.color.mint.name,
+                  R.color.orange.name,
+                  R.color.pink.name]
+    var selectedColor = R.color.purple.name
     var category: EntityCat?
     @IBAction func cancelCategory(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -32,7 +36,7 @@ class CategoryViewController: UIViewController {
     }
     func saveNewCategory() -> Bool {
         if textFieldCategory.text!.isEmpty {
-            let alert = UIAlertController(title: "Error!", message: "Input the Category!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error", message: "Input the Category!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
             return false

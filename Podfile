@@ -2,5 +2,6 @@
 # platform :ios, '9.0'
 
 target 'TaskManager' do
-   pod 'SwiftLint'
+	pod 'SwiftLint'
+	pod 'R.swift'
 end

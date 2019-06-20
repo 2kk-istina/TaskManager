@@ -14,7 +14,10 @@ class ViewController: UIViewController, ChangeButton {
     var myTask: EntityTask?
     @IBOutlet weak var tableView: UITableView!
     @IBAction func addNewTask(_ sender: Any) {
-        performSegue(withIdentifier: "taskManagerToTask", sender: nil)
+        performSegue(withIdentifier: R.segue.viewController.taskManagerToTask, sender: nil)
+    }
+    @IBAction func goToSettings(_ sender: Any) {
+        performSegue(withIdentifier: R.segue.viewController.taskToSettings, sender: nil)
     }
     //
     override func viewDidLoad() {
@@ -56,11 +59,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Taskcell", for: indexPath as IndexPath) as? Taskcell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.taskcell, for: indexPath as IndexPath) else {
             fatalError("DequeueReusableCell failed while casting")
         }
         guard let task = self.fetchedResultsController.object(at: indexPath as IndexPath) as? EntityTask else {
-            fatalError("DequeueReusableCell failed while casting")
+            fatalError("Failed while casting")
         }
         cell.taskTitle.text = task.taskTitle
         cell.catName.text = task.taskCategory
@@ -68,11 +71,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.dateStart.text = dateString(date: task.dateStart! as Date)
         cell.dateFinish.text = dateString(date: task.dateComplete! as Date)
         if task.taskComplete {
-            cell.checkBoxOutlet.setImage(UIImage(named: "Checkmark"), for: .normal)
-            cell.prioritySign.backgroundColor = UIColor(named: "frog")
-            cell.backgroundColor = UIColor(named: "frog")
+            cell.checkBoxOutlet.setImage(R.image.checkmark(), for: .normal)
+            cell.prioritySign.backgroundColor = R.color.frog()
+            cell.backgroundColor = R.color.frog()
         } else {
-            cell.checkBoxOutlet.setImage(UIImage(named: "Checkmarkempty"), for: .normal)
+            cell.checkBoxOutlet.setImage(R.image.checkmarkempty(), for: .normal)
             cell.prioritySign.backgroundColor = task.categories?.colour as? UIColor
             cell.backgroundColor = UIColor.white
         }
@@ -82,14 +85,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = fetchedResultsController.object(at: indexPath) as? EntityTask
-        performSegue(withIdentifier: "taskManagerToTask", sender: task)
+        performSegue(withIdentifier: R.segue.viewController.taskManagerToTask, sender: task)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "taskManagerToTask" {
-            guard let controller = segue.destination as? TaskViewController else {
-                fatalError("Wrong destination")
-            }
-            controller.myTask = sender as? EntityTask
+        if let cotroller = R.segue.taskViewController.categoryToCategory(segue: segue) {
+            cotroller.source.myTask = sender as? EntityTask
         }
     }
     //DeleteRow

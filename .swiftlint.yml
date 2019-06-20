@@ -1,5 +1,7 @@
 line_length:
 - 220
 - 300
+
 excluded:
-- pods
+- Pods
+- Resource/R.generated.swift

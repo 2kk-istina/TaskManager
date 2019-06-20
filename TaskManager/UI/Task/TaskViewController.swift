@@ -19,7 +19,7 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
     //
     // Choice
     @IBAction func chooseCategory(_ sender: Any) {
-        performSegue(withIdentifier: "categoryToCategory", sender: nil)
+        performSegue(withIdentifier: R.segue.taskViewController.categoryToCategory, sender: nil)
     }
     //CancelInfo
     @IBAction func canselInfo(_ sender: Any) {
@@ -122,9 +122,8 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }
     //AddCategory
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "categoryToCategory" {
-            let viewController = segue.destination as? CategoriesViewController
-            viewController!.didSelect = { [unowned self] (category) in
+        if let controller = R.segue.categoriesViewController.catToCat(segue: segue) {
+            controller.source.didSelect = { [unowned self] (category) in
                 if let category = category {
                     self.myCategory = category
                     self.taskCategory.text =  self.myCategory?.name
