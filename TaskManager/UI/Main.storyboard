@@ -10,6 +10,53 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Setting View Controller-->
+        <scene sceneID="d4M-z8-zmd">
+            <objects>
+                <viewController id="IdS-DR-O99" customClass="SettingViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uPj-hs-gAL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WgS-Xf-Yyf">
+                                <rect key="frame" x="246" y="124" width="51" height="31"/>
+                            </switch>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sh2-Ue-7YE">
+                                <rect key="frame" x="0.0" y="40" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Settings" id="dYd-VL-d5y">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="ZGe-y7-XMK">
+                                            <connections>
+                                                <action selector="backToMain:" destination="IdS-DR-O99" id="uYr-z6-PLP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4t0-JV-HzV">
+                                <rect key="frame" x="80" y="129" width="141" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sh2-Ue-7YE" secondAttribute="trailing" id="65v-3R-K3h"/>
+                            <constraint firstItem="WgS-Xf-Yyf" firstAttribute="leading" secondItem="4t0-JV-HzV" secondAttribute="trailing" constant="25" id="Bkp-jw-hUd"/>
+                            <constraint firstItem="4t0-JV-HzV" firstAttribute="top" secondItem="sh2-Ue-7YE" secondAttribute="bottom" constant="45" id="EKG-Sr-EzF"/>
+                            <constraint firstItem="4t0-JV-HzV" firstAttribute="leading" secondItem="Iqa-Wu-E5I" secondAttribute="leading" constant="80" id="Qnp-Z6-vXf"/>
+                            <constraint firstItem="sh2-Ue-7YE" firstAttribute="leading" secondItem="uPj-hs-gAL" secondAttribute="leading" id="fBt-K2-TST"/>
+                            <constraint firstItem="WgS-Xf-Yyf" firstAttribute="top" secondItem="sh2-Ue-7YE" secondAttribute="bottom" constant="40" id="fko-ae-1g7"/>
+                            <constraint firstItem="sh2-Ue-7YE" firstAttribute="top" secondItem="uPj-hs-gAL" secondAttribute="top" constant="40" id="ksq-FB-j8w"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Iqa-Wu-E5I"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pQX-aY-3Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="870" y="-610"/>
+        </scene>
         <!--Task Manager-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -133,6 +180,12 @@
                     <navigationItem key="navigationItem" title="Task Manager" id="gfh-6H-wpW">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="GIi-9J-jdp">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="goToSettings:" destination="BYZ-38-t0r" id="ldx-Ho-rs5"/>
+                                <segue destination="IdS-DR-O99" kind="popoverPresentation" identifier="taskToSettings" popoverAnchorBarButtonItem="GIi-9J-jdp" id="kpY-22-uvQ">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rzu-Uf-YkI">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -343,7 +396,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrT-AW-hai">
-                                                    <rect key="frame" x="75" y="5" width="300" height="58.5"/>
+                                                    <rect key="frame" x="75" y="5" width="300" height="59"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="cid-08-slr"/>
                                                     </constraints>

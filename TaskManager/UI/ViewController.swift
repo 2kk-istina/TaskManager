@@ -16,6 +16,9 @@ class ViewController: UIViewController, ChangeButton {
     @IBAction func addNewTask(_ sender: Any) {
         performSegue(withIdentifier: R.segue.viewController.taskManagerToTask, sender: nil)
     }
+    @IBAction func goToSettings(_ sender: Any) {
+        performSegue(withIdentifier: R.segue.viewController.taskToSettings, sender: nil)
+    }
     //
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,10 +88,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: R.segue.viewController.taskManagerToTask, sender: task)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            guard let controller = segue.destination as? TaskViewController else {
-                fatalError("Wrong destination")
-            }
-            controller.myTask = sender as? EntityTask
+        if let cotroller = R.segue.taskViewController.categoryToCategory(segue: segue) {
+            cotroller.source.myTask = sender as? EntityTask
+        }
     }
     //DeleteRow
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

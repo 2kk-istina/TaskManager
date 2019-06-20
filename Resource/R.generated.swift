@@ -138,16 +138,25 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `ViewController`, and contains static references to 1 segues.
+    /// This struct is generated for `ViewController`, and contains static references to 2 segues.
     struct viewController {
       /// Segue identifier `taskManagerToTask`.
       static let taskManagerToTask: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ViewController, TaskViewController> = Rswift.StoryboardSegueIdentifier(identifier: "taskManagerToTask")
+      /// Segue identifier `taskToSettings`.
+      static let taskToSettings: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ViewController, SettingViewController> = Rswift.StoryboardSegueIdentifier(identifier: "taskToSettings")
       
       /// Optionally returns a typed version of segue `taskManagerToTask`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func taskManagerToTask(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ViewController, TaskViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.viewController.taskManagerToTask, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `taskToSettings`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func taskToSettings(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ViewController, SettingViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.viewController.taskToSettings, segue: segue)
       }
       
       fileprivate init() {}

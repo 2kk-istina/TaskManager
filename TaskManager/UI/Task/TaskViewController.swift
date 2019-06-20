@@ -122,13 +122,14 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }
     //AddCategory
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let viewController = segue.destination as? CategoriesViewController
-            viewController!.didSelect = { [unowned self] (category) in
+        if let controller = R.segue.categoriesViewController.catToCat(segue: segue) {
+            controller.source.didSelect = { [unowned self] (category) in
                 if let category = category {
                     self.myCategory = category
                     self.taskCategory.text =  self.myCategory?.name
                     self.colorCategory.backgroundColor =  self.myCategory?.colour as? UIColor
                 }
             }
+        }
     }
 }
