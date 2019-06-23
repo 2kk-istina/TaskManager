@@ -88,8 +88,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: R.segue.viewController.taskManagerToTask, sender: task)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cotroller = R.segue.taskViewController.categoryToCategory(segue: segue) {
-            cotroller.source.myTask = sender as? EntityTask
+        if let cotroller = R.segue.viewController.taskManagerToTask(segue: segue) {
+            cotroller.destination.myTask = sender as? EntityTask
         }
     }
     //DeleteRow
