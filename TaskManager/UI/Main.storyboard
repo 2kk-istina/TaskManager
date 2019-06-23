@@ -439,7 +439,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="3Ru-hp-FbS" id="Bm2-Qr-DYH"/>
-                        <segue destination="5vN-aw-CbW" kind="presentation" identifier="catToCat" id="niP-JQ-hep"/>
+                        <segue destination="5vN-aw-CbW" kind="presentation" identifier="newCatagoryToCat" id="niP-JQ-hep"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Gz-L9-FvC" userLabel="First Responder" sceneMemberID="firstResponder"/>

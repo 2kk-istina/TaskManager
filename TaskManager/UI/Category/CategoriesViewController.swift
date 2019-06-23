@@ -19,7 +19,7 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     //ButtonAddNewCategory
     @IBAction func addNewCategory(_ sender: Any) {
-        performSegue(withIdentifier: R.segue.categoriesViewController.catToCat, sender: nil)
+        performSegue(withIdentifier: R.segue.categoriesViewController.newCatagoryToCat, sender: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
