@@ -16,16 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]){
-            (granted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
+            (granted, _) in
             if granted {
                 print("User gave permissions for local notifications")
             }
         }
         return true
     }
-    func scheduleNotification(atDate: Date, title: String, body:String, uuid: String) {
-        
+    func scheduleNotification(atDate: Date, title: String, body: String, uuid: String) {
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents(in: .current, from: atDate)
         let newComponents = DateComponents(calendar: calendar,
@@ -37,13 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
         //THe notification content
         let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
+        content.title = "Hello"
+        content.body = "How are you"
         content.sound = UNNotificationSound.default
         content.userInfo = ["UUID": uuid]
-        
-        let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
-        
+        //
+        let request = UNNotificationRequest (identifier: uuid, content: content, trigger: trigger)
+        //Register the request
         UNUserNotificationCenter.current().add(request) {(error) in
             if let error = error {
                 print("Oh! We had an error: \(error)")

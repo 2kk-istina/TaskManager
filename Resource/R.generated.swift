@@ -110,14 +110,14 @@ struct R: Rswift.Validatable {
   struct segue {
     /// This struct is generated for `CategoriesViewController`, and contains static references to 1 segues.
     struct categoriesViewController {
-      /// Segue identifier `catToCat`.
-      static let catToCat: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, CategoriesViewController, CategoryViewController> = Rswift.StoryboardSegueIdentifier(identifier: "catToCat")
+      /// Segue identifier `newCatagoryToCat`.
+      static let newCatagoryToCat: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, CategoriesViewController, CategoryViewController> = Rswift.StoryboardSegueIdentifier(identifier: "newCatagoryToCat")
       
-      /// Optionally returns a typed version of segue `catToCat`.
+      /// Optionally returns a typed version of segue `newCatagoryToCat`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func catToCat(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, CategoriesViewController, CategoryViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.categoriesViewController.catToCat, segue: segue)
+      static func newCatagoryToCat(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, CategoriesViewController, CategoryViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.categoriesViewController.newCatagoryToCat, segue: segue)
       }
       
       fileprivate init() {}

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class ViewController: UIViewController, ChangeButton {
     var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskComplete")
@@ -48,6 +49,7 @@ class ViewController: UIViewController, ChangeButton {
         let dateResult = dateFormatter.string(from: date)
         return dateResult
     }
+    
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - TableViewDataSource

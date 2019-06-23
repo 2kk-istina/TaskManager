@@ -13,6 +13,7 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
     var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskTitle")
     var myTask: EntityTask?
     var myCategory: EntityCat?
+    let uuidString = UUID().uuidString
     //
     typealias Select = (EntityTask?) -> Void
     var didSelect: Select?
@@ -95,6 +96,8 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
             myTask.dateStart = dateDate(date: startDate.text!) as NSDate
             myTask.dateComplete = dateDate(date: finishDate.text!) as NSDate
             myTask.taskComplete = false
+            myTask.notification = true
+            myTask.uuid = uuidString
             CoreDataManager.instance.saveContext()
         }
         return true
@@ -122,8 +125,8 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }
     //AddCategory
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let controller = R.segue.categoriesViewController.catToCat(segue: segue) {
-            controller.source.didSelect = { [unowned self] (category) in
+        if let controller = R.segue.taskViewController.categoryToCategory(segue: segue) {
+            controller.destination.didSelect = { [unowned self] (category) in
                 if let category = category {
                     self.myCategory = category
                     self.taskCategory.text =  self.myCategory?.name

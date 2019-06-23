@@ -19,5 +19,7 @@ extension EntityTask {
     @NSManaged public var taskComplete: Bool
     @NSManaged public var taskText: String?
     @NSManaged public var taskTitle: String?
+    @NSManaged public var notification: Bool
+    @NSManaged public var uuid: String?
     @NSManaged public var categories: EntityCat?
 }
