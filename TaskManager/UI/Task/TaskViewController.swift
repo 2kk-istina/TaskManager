@@ -61,6 +61,8 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
         startDate.text = dateString(date: date)
         colorCategory.layer.masksToBounds = true
         colorCategory.layer.cornerRadius = colorCategory.frame.size.width/2
+        colorCategory.layer.borderWidth = 1.0
+        colorCategory.layer.borderColor = UIColor.lightGray.cgColor
 
         if let myTask = myTask {
             taskTitle.text = myTask.taskTitle
@@ -99,6 +101,7 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
             myTask.notification = true
             myTask.uuid = uuidString
             CoreDataManager.instance.saveContext()
+            NotificationsManager.sharedInstance.newNotification(date: myTask.dateComplete! as Date, uuid: myTask.uuid!, body: myTask.taskTitle!)
         }
         return true
     }

@@ -74,6 +74,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.checkBoxOutlet.setImage(R.image.checkmark(), for: .normal)
             cell.prioritySign.backgroundColor = R.color.frog()
             cell.backgroundColor = R.color.frog()
+            task.notification = false
         } else {
             cell.checkBoxOutlet.setImage(R.image.checkmarkempty(), for: .normal)
             cell.prioritySign.backgroundColor = task.categories?.colour as? UIColor

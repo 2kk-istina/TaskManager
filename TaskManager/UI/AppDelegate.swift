@@ -16,34 +16,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]){
-            (granted, error) in
+        //Ask for permission
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, _) in
             if granted {
                 print("User gave permissions for local notifications")
             }
         }
         return true
     }
-    func scheduleNotification(atDate: Date, title: String, body:String, uuid: String) {
-        
-        let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents(in: .current, from: atDate)
-        let newComponents = DateComponents(calendar: calendar,
-                                           timeZone: .current,
-                                           month: components.month,
-                                           day: components.day,
-                                           hour: components.hour,
-                                           minute: components.minute)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
-        //THe notification content
+    func scheduleNotification(atDate: Date, title: String, body: String, uuid: String) {
+        //The notification content
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
         content.sound = UNNotificationSound.default
         content.userInfo = ["UUID": uuid]
-        
+        //Create the notification trigger
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: atDate)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        //Create the request
         let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
-        
+        //Register the request
         UNUserNotificationCenter.current().add(request) {(error) in
             if let error = error {
                 print("Oh! We had an error: \(error)")
