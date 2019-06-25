@@ -20,6 +20,9 @@
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WgS-Xf-Yyf">
                                 <rect key="frame" x="246" y="124" width="51" height="31"/>
+                                <connections>
+                                    <action selector="notificSwitch:" destination="IdS-DR-O99" eventType="valueChanged" id="wjA-ZZ-pdb"/>
+                                </connections>
                             </switch>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sh2-Ue-7YE">
                                 <rect key="frame" x="0.0" y="40" width="414" height="44"/>
@@ -52,6 +55,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iqa-Wu-E5I"/>
                     </view>
+                    <connections>
+                        <outlet property="switchNotification" destination="WgS-Xf-Yyf" id="0a7-FE-3Tp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQX-aY-3Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
