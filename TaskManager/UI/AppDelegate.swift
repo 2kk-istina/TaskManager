@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-    func scheduleNotification(atDate: Date, title: String, body: String, uuid: String) {
+    func scheduleNotification(title: String, body: String, uuid: String) {
         //The notification content
         let content = UNMutableNotificationContent()
         content.title = title
@@ -33,8 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         content.sound = UNNotificationSound.default
         content.userInfo = ["UUID": uuid]
         //Create the notification trigger
-        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: atDate)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let date = Date().addingTimeInterval(10)
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         //Create the request
         let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
         //Register the request

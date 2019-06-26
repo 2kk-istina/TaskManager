@@ -100,8 +100,8 @@ class TaskViewController: UIViewController, NSFetchedResultsControllerDelegate {
             myTask.taskComplete = false
             myTask.notification = true
             myTask.uuid = uuidString
+            NotificationsManager.sharedInstance.newNotification(uuid: myTask.uuid!, body: myTask.taskTitle!)
             CoreDataManager.instance.saveContext()
-            NotificationsManager.sharedInstance.newNotification(date: myTask.dateComplete! as Date, uuid: myTask.uuid!, body: myTask.taskTitle!)
         }
         return true
     }

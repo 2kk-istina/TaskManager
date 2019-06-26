@@ -10,16 +10,19 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController, ChangeButton {
+
+    @IBOutlet weak var tableView: UITableView!
+
     var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "EntityTask", keyForSort: "taskComplete")
     var myTask: EntityTask?
-    @IBOutlet weak var tableView: UITableView!
+
     @IBAction func addNewTask(_ sender: Any) {
         performSegue(withIdentifier: R.segue.viewController.taskManagerToTask, sender: nil)
     }
     @IBAction func goToSettings(_ sender: Any) {
         performSegue(withIdentifier: R.segue.viewController.taskToSettings, sender: nil)
     }
-    //
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchedResultsController.delegate = self
@@ -32,11 +35,14 @@ class ViewController: UIViewController, ChangeButton {
         tableView.dataSource = self
         tableView.reloadData()
     }
+
     func changeButton(checked: EntityTask  ) {
         if checked.taskComplete == true {
             checked.taskComplete = false
+            checked.notification = false
         } else {
             checked.taskComplete = true
+            checked.notification = true
         }
         CoreDataManager.instance.saveContext()
         CoreDataManager.instance.managedObjectContext.refreshAllObjects()
@@ -74,7 +80,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.checkBoxOutlet.setImage(R.image.checkmark(), for: .normal)
             cell.prioritySign.backgroundColor = R.color.frog()
             cell.backgroundColor = R.color.frog()
-            task.notification = false
         } else {
             cell.checkBoxOutlet.setImage(R.image.checkmarkempty(), for: .normal)
             cell.prioritySign.backgroundColor = task.categories?.colour as? UIColor

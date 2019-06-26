@@ -13,12 +13,6 @@ import UIKit
 class SettingsData {
     static let sharedInstance = SettingsData()
     var mySettings: EntitySettings?
-    func addSettings() {
-        if let mySettings = mySettings {
-            mySettings.notification = true
-            CoreDataManager.instance.saveContext()
-        }
-    }
     func editSettings(notificationsEnabled: Bool) {
         if mySettings != nil {
             mySettings?.notification = notificationsEnabled

@@ -13,12 +13,10 @@ import UIKit
 class NotificationsManager {
     static let sharedInstance = NotificationsManager()
     var myTask: EntityTask?
-//    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     weak var delegate = UIApplication.shared.delegate as? AppDelegate
     //
-    func newNotification(date: Date, uuid: String, body: String) {
+    func newNotification(uuid: String, body: String) {
         delegate?.scheduleNotification(
-            atDate: date,
             title: "You have something to do, remember?",
             body: body,
             uuid: uuid)
@@ -31,7 +29,7 @@ class NotificationsManager {
         if let myTask = myTask {
             if myTask.notification == true {
                 //schedule notification
-                newNotification(date: myTask.dateComplete! as Date, uuid: myTask.uuid!, body: myTask.taskTitle!)
+                newNotification(uuid: myTask.uuid!, body: myTask.taskTitle!)
             }
         }
     }
