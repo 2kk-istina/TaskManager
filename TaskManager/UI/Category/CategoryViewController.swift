@@ -8,7 +8,11 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
+final class CategoryViewController: UIViewController, ShowsAlert {
+
+    @IBOutlet weak var textFieldCategory: UITextField!
+    @IBOutlet weak var colorPickerView: UIPickerView!
+
     let colors = [R.color.purple.name,
                   R.color.blue.name,
                   R.color.mint.name,
@@ -16,16 +20,7 @@ class CategoryViewController: UIViewController {
                   R.color.pink.name]
     var selectedColor = R.color.purple.name
     var category: EntityCat?
-    @IBAction func cancelCategory(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    @IBAction func saveCategory(_ sender: Any) {
-        if saveNewCategory() {
-            dismiss(animated: true, completion: nil)
-        }
-    }
-    @IBOutlet weak var textFieldCategory: UITextField!
-    @IBOutlet weak var colorPickerView: UIPickerView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         colorPickerView.delegate = self
@@ -34,8 +29,11 @@ class CategoryViewController: UIViewController {
                 self.textFieldCategory.text = category.name
         }
     }
+
     func saveNewCategory() -> Bool {
         if textFieldCategory.text!.isEmpty {
+
+          //guard let alert = ShowsAlert.showActionAlert(<#T##ShowsAlert#>)
             let alert = UIAlertController(title: "Error", message: "Input the Category!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
@@ -52,13 +50,28 @@ class CategoryViewController: UIViewController {
         return true
     }
 }
+
+private extension CategoryViewController {
+    @IBAction func cancelCategory(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func saveCategory(_ sender: Any) {
+        if saveNewCategory() {
+            dismiss(animated: true, completion: nil)
+        }
+    }
+}
+
 extension CategoryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return colors.count
     }
+
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
     var label: UILabel
     if let view = view as? UILabel { label = view } else {
@@ -70,6 +83,7 @@ extension CategoryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     label.text = colors[row]
     return label
     }
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedColor = colors[row]
     }

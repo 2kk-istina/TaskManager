@@ -19,6 +19,7 @@
 		D282FE2D22A94AF500402936 /* TaskManager.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = D282FE2B22A94AF500402936 /* TaskManager.xcdatamodeld */; };
 		D282FE2F22A94AF700402936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D282FE2E22A94AF700402936 /* Assets.xcassets */; };
 		D282FE3222A94AF700402936 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D282FE3022A94AF700402936 /* LaunchScreen.storyboard */; };
+		D2984AAE22C2A55A00B127B7 /* ShowsAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984AAD22C2A55A00B127B7 /* ShowsAlerts.swift */; };
 		D2AC0B3522AE78DD00448B83 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC0B3422AE78DD00448B83 /* CategoryTableViewCell.swift */; };
 		D2BA98E222B6BF12000E9635 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BA98E122B6BF12000E9635 /* Main.storyboard */; };
 		D2BD45C722C25BD9000B6B2C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD45C622C25BD9000B6B2C /* Settings.swift */; };
@@ -50,6 +51,7 @@
 		D282FE3122A94AF700402936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D282FE3322A94AF700402936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2953DF922B14ACD00EC7D49 /* TaskManager1. 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskManager1. 3.xcdatamodel"; sourceTree = "<group>"; };
+		D2984AAD22C2A55A00B127B7 /* ShowsAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowsAlerts.swift; path = "../../../Downloads/Telegram Desktop/ShowsAlerts.swift"; sourceTree = "<group>"; };
 		D2AC0B3422AE78DD00448B83 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		D2BA98E122B6BF12000E9635 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D2BD45C622C25BD9000B6B2C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = Settings/Settings.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		D2A2C5AA22B818190085F5C0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D2984AAD22C2A55A00B127B7 /* ShowsAlerts.swift */,
 				D225559022BA78BC004845BC /* R.generated.swift */,
 				D282FE3322A94AF700402936 /* Info.plist */,
 				D282FE3022A94AF700402936 /* LaunchScreen.storyboard */,
@@ -361,6 +364,7 @@
 				D282FE2722A94AF500402936 /* ViewController.swift in Sources */,
 				D2F99F0322B14FBE00BBE644 /* EntitySettings+CoreDataProperties.swift in Sources */,
 				D26F371922BBE6A400B02CAD /* NotificationsManager.swift in Sources */,
+				D2984AAE22C2A55A00B127B7 /* ShowsAlerts.swift in Sources */,
 				D2C3630D22AA92060067CE1D /* CoreDataManager.swift in Sources */,
 				D282FE2522A94AF500402936 /* AppDelegate.swift in Sources */,
 				D2174F6222AFD8280016B7FE /* CategoriesViewController.swift in Sources */,
